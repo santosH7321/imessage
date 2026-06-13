@@ -42,6 +42,7 @@ app.get("/health", (req, res) => {
 
 app.use("/api/auth", authRoutes);
 
+
 app.listen(PORT, () => {
     console.log(`Server is listing on http://localhost:${PORT}`);
 
