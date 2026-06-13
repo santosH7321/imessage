@@ -12,6 +12,7 @@ import cors from "cors";
 import { clerkMiddleware } from '@clerk/express'
 import job from "./lib/cron.js";
 import clerkWebhook from "./webhooks/clerk.webhook.js";
+import authRoutes from "./routes/auth.route.js";
 
 const app = express();
 
@@ -38,6 +39,8 @@ if (fs.existsSync(publicDir)) {
 app.get("/health", (req, res) => {
     res.send("Hello i'm Good 🙋‍♂️");
 })
+
+app.use("/api/auth", authRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server is listing on http://localhost:${PORT}`);
