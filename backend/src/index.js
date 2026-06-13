@@ -32,6 +32,10 @@ if (fs.existsSync(publicDir)) {
   });
 }
 
+app.get("/health", (req, res) => {
+    res.send("Hello i'm Good 🙋‍♂️");
+})
+
 app.listen(PORT, () => {
     console.log(`Server is listing on http://localhost:${PORT}`)
 })
