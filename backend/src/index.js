@@ -37,5 +37,7 @@ app.get("/health", (req, res) => {
 })
 
 app.listen(PORT, () => {
-    console.log(`Server is listing on http://localhost:${PORT}`)
+    console.log(`Server is listing on http://localhost:${PORT}`);
+    
+    if (process.env.NODE_ENV === "production") job.start();
 })
