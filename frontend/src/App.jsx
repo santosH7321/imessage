@@ -7,12 +7,15 @@ import { useAuth } from '@clerk/react';
 
 const App = () => {
   const { isSignedIn, isLoaded } = useAuth();
+
+  if(!isLoaded) return <p>Loading...</p>;
+
   return (
     <ThemeProvider>
       <WallpaperProvider>
         <Routes>
           <Route path='/' element={isSignedIn ? <ChatPage /> : <Navigate to={"/auth"} replace/>}/>
-          <Route path='/auth' element={!isSignedIn ? <AuthPage /> : <Navigate to={"/chat"} replace/>}/>
+          <Route path='/auth' element={!isSignedIn ? <AuthPage /> : <Navigate to={"/"} replace/>}/>
         </Routes>
       </WallpaperProvider>
     </ThemeProvider>
