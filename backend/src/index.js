@@ -14,7 +14,7 @@ import job from "./lib/cron.js";
 import clerkWebhook from "./webhooks/clerk.webhook.js";
 import authRoutes from "./routes/auth.route.js";
 import { MessageRouter } from "./routes/message.route.js";
-import { app, server } from "./lib/socket.js";
+import { server } from "./lib/socket.js";
 
 const app = express();
 
