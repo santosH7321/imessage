@@ -14,6 +14,7 @@ import job from "./lib/cron.js";
 import clerkWebhook from "./webhooks/clerk.webhook.js";
 import authRoutes from "./routes/auth.route.js";
 import { MessageRouter } from "./routes/message.route.js";
+import { app, server } from "./lib/socket.js";
 
 const app = express();
 
@@ -45,7 +46,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/message", MessageRouter);
 
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log(`Server is listing on http://localhost:${PORT}`);
 
     if (process.env.NODE_ENV === "production") job.start();
