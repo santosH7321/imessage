@@ -1,7 +1,10 @@
+import { Button } from '@heroui/react';
 
 const App = () => {
   return (
-    <div>App</div>
+    <Button>
+      My Button
+    </Button>
   )
 }
 
